@@ -27,24 +27,28 @@ class _HomePageState extends State<HomePage> {
         },
         child: Icon(Icons.add),
       ),
-      body:ListView.builder(
+      body: body:ListView.builder(
+        padding: EdgeInsets.all(5),
         itemCount: contacts.length,
         itemBuilder: (context,index){
-          return ListTile(
-            leading: CircleAvatar(),
-            title: Text(contacts[index].nom.toString()+" "+contacts[index].prenom.toString()),
-            subtitle: Text("E-mail: "+contacts[index].mail.toString()+" | Téléphone: " +contacts[index].tel.toString(), style: TextStyle(fontWeight: FontWeight.w700),),
-            tileColor: Color(0xA3E1F5FC),
-            selected: index== selectIndex,
-            trailing: Icon(
-              Icons.delete_forever, color: Colors.red,
+          return Container(
+            margin: EdgeInsets.all(5),
+            child: ListTile(
+              leading: CircleAvatar(),
+              title: Text(contacts[index].nom.toString()+" "+contacts[index].prenom.toString()),
+              subtitle: Text("E-mail: "+contacts[index].mail.toString()+" | Téléphone: " +contacts[index].tel.toString(), style: TextStyle(fontWeight: FontWeight.w700),),
+              tileColor: Color(0xA3E1F5FC),
+              selected: index== selectIndex,
+              trailing: Icon(
+                Icons.delete_forever, color: Colors.red,
+              ),
+              onTap: (){
+                setState(() {
+                  selectIndex = index;
+                  contacts.removeAt(index);
+                });
+              },
             ),
-            onTap: (){
-              setState(() {
-                selectIndex = index;
-                contacts.removeAt(index);
-              });
-            },
           );
         },
 
