@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
         },
         child: Icon(Icons.add),
       ),
-      body: body:ListView.builder(
+      body:ListView.builder(
         padding: EdgeInsets.all(5),
         itemCount: contacts.length,
         itemBuilder: (context,index){
