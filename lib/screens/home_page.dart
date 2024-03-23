@@ -15,6 +15,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
         title: Text("Mes contacts" , style: TextStyle(fontWeight: FontWeight.w600),),
       ),
       floatingActionButton: FloatingActionButton(
